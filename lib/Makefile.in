@@ -1,0 +1,11 @@
+INCLUDES=@INCLUDES@
+DEFINES=-DELFVERIFY_INTERNAL
+
+all:
+	@CC@ ${INCLUDES} ${DEFINES} -I../melf -Wall -O3 -c verify.c -o verify.o
+
+clean:
+	rm -f *.o
+
+distclean:
+	rm -f *.o Makefile

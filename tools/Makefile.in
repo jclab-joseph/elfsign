@@ -1,0 +1,13 @@
+INCLUDES=@INCLUDES@ -I../melf -I../lib
+LIBPATH=@LIBPATH@
+DEFINES=-DELFVERIFY_INTERNAL
+
+all:
+	@CC@ -Wall -O3 ${INCLUDES} ${DEFINES} elfsign.c -o elfsign ../lib/verify.o ../melf/libmelf.a ${LIBPATH} -lcrypto -lssl
+	@CC@ -Wall -O3 ${INCLUDES} elfverify.c -o elfverify ../lib/verify.o ../melf/libmelf.a ${LIBPATH} -lcrypto -lssl
+
+clean:
+	rm -f elfsign elfverify
+
+distclean:
+	rm -f elfsign elfverify Makefile

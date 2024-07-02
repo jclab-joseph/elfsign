@@ -1,0 +1,11 @@
+cc=@CC@
+DEFINES=@DEFINES@
+
+all:
+	${CC} ${DEFINES} -I.. -Wall -O3 elfres.c -o elfres ../libmelf.a
+
+clean:
+	rm -f elfres
+
+distclean:	
+	rm -f elfres Makefile
